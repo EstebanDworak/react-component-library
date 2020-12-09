@@ -1,0 +1,4 @@
+{
+  "compareUrlFormat":"{{host}}/ResserOS/_git/react-library-template/branchCompare?baseVersion=GT{{previousTag}}&targetVersion=GT{{currentTag}}",
+  "commitUrlFormat": "{{host}}/ResserOS/_git/react-library-template/commit/{{hash}}"
+}
