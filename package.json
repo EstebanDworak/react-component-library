@@ -4,9 +4,9 @@
   "private": true,
   "dependencies": {},
   "scripts": {
-    "start:dev": "start-storybook -p 6006 -s public",
-    "doc:dev": "start-storybook -p 6006 -s public",
-    "doc:build": "build-storybook -s public",
+    "start:dev": "start-storybook -p 6006",
+    "doc:dev": "start-storybook -p 6006",
+    "doc:build": "build-storybook",
     "test": "react-scripts test --coverage --watchAll=false --reporters=default --reporters=jest-junit",
     "test:dev": "react-scripts test --watchAll",
     "build": "rimraf ./dist && tsc",
