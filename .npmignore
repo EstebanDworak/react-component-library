@@ -2,3 +2,4 @@ src
 node_modules
 coverage
 storybook-static
+junit.xml
