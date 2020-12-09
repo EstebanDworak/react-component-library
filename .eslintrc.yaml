@@ -28,3 +28,5 @@ rules:
     prettier/prettier:
         - error
         - endOfLine: auto
+    "import/no-extraneous-dependencies": 0
+    "react/jsx-props-no-spreading": 0

@@ -4,12 +4,17 @@
   "private": true,
   "dependencies": {},
   "scripts": {
-    "start": "react-scripts start",
+    "start:dev": "start-storybook -p 6006 -s public",
+    "doc:dev": "start-storybook -p 6006 -s public",
+    "doc:build": "build-storybook -s public",
+    "test": "react-scripts test --coverage --watchAll=false --reporters=default --reporters=jest-junit",
+    "test:dev": "react-scripts test --watchAll",
     "build": "rimraf ./dist && tsc",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "lint": "eslint src/**/*.{js,ts,tsx} --quiet --fix",
+    "release": "standard-version",
+    "release:tags": "git push --follow-tags origin HEAD:master",
+    "commit": "git-cz",
+    "prepublishOnly": "npm run lint && npm run build"
   },
   "eslintConfig": {
     "extends": [
