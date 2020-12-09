@@ -1,0 +1,30 @@
+env:
+    browser: true
+    commonjs: true
+    node: true
+    es6: true
+extends:
+    - airbnb-typescript-prettier
+globals:
+    Atomics: readonly
+    SharedArrayBuffer: readonly
+parserOptions:
+    ecmaVersion: 2020
+    sourceType: module
+    createDefaultProgram: true
+plugins:
+    - import
+rules:
+    no-underscore-dangle: 0
+    import/prefer-default-export: 0
+    import/no-cycle: 0
+    "@typescript-eslint/no-unused-vars": 0
+    no-use-before-define: 0
+    "@typescript-eslint/no-use-before-define": 
+        - "off"
+    no-shadow': 'off'
+    "@typescript-eslint/no-shadow": 
+        - "off"
+    prettier/prettier:
+        - error
+        - endOfLine: auto
