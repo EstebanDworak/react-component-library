@@ -6,7 +6,7 @@
       "dom"
     ],
     "outDir": "dist",
-    "jsx": "react",
+    "jsx": "react-jsx",
     "module": "esnext",
     "declaration": true,
     "declarationMap": true,
