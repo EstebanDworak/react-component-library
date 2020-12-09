@@ -6,7 +6,7 @@
       "dom"
     ],
     "outDir": "dist",
-    "jsx": "react",
+    "jsx": "react-jsx",
     "module": "esnext",
     "declaration": true,
     "declarationMap": true,
@@ -30,7 +30,7 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
-    "noEmit": false
+    "noEmit": true
   },
   "include": [
     "src"
