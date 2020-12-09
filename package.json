@@ -18,7 +18,7 @@
     "doc:build": "build-storybook",
     "test": "react-scripts test --coverage --watchAll=false --reporters=default --reporters=jest-junit",
     "test:dev": "react-scripts test --watchAll",
-    "build": "rimraf ./dist && tsc",
+    "build": "rimraf ./dist && tsc --noEmit false",
     "lint": "eslint src/**/*.{js,ts,tsx} --quiet --fix",
     "release": "standard-version",
     "release:tags": "git push --follow-tags origin HEAD:master",
