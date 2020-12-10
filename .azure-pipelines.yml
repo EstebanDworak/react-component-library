@@ -1,0 +1,64 @@
+trigger:
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - "*"
+    exclude:
+    - CHANGELOG.md
+    - package.json
+    - package-lock.json
+
+pool:
+  vmImage: "ubuntu-18.04"
+
+steps:
+- checkout: self
+  persistCredentials: true
+
+- task: NodeTool@0
+  inputs:
+    versionSpec: '10.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    git config --global user.email "esteban.cervantes@resser.com"
+    git config --global user.name "Dworak"
+  displayName: 'Setup Git'
+
+- script: |
+    npm install
+  displayName: Restore Packages
+
+- script: |
+    npm test
+  displayName: Testing and Coverage
+
+- script: |
+    npm run build
+  displayName: Build
+
+- script: |
+    npm run release
+    npm run release:tags
+  displayName: Release
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/junit.xml'
+  displayName: Publish Test Results
+
+- task: PublishCodeCoverageResults@1
+  inputs:
+    codeCoverageTool: Cobertura
+    summaryFileLocation: coverage/cobertura-coverage.xml
+  displayName: Publish Coverage Results
+
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    customCommand: 'publish'
+    customEndpoint: 'react-resser'
+  displayName: Publish Package
