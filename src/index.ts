@@ -28,7 +28,10 @@ export interface CliOptions {
     tartgetPath: string
 }
 
-const CURR_DIR = process.cwd();
+const CURR_DIR = process.cwd().replace(`\create-component-library`,"");
+
+console.log(CURR_DIR, "CUUUUUUUUUR");
+
 
 inquirer.prompt(QUESTIONS).then(answers => {
     const projectChoice = answers['template'];
