@@ -1,6 +1,6 @@
 {
-  "name": "create-component-library",
-  "version": "1.0.0",
+"name": "@resser/create-component-library",
+  "version": "3.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
