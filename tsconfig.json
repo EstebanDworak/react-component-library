@@ -1,48 +1,12 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "es2015",
-      "dom"
-    ],
-    "outDir": "dist",
-    "jsx": "react-jsx",
-    "module": "esnext",
+    "target": "es6",
+    "module": "commonjs",
     "declaration": true,
-    "declarationMap": true,
     "sourceMap": true,
+    "outDir": "dist",
+    "rootDir": "src",
     "strict": true,
-    "noImplicitAny": false,
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "strictPropertyInitialization": true,
-    "noImplicitThis": true,
-    "alwaysStrict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "allowJs": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true,
-    "noEmit": true
-  },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "node_modules",
-    "**/*.test.ts",
-    "**/*.test.tsx",
-    "**/*.stories.tsx",
-    "./src/setupTests.ts"
-  ],
-  "files": [
-    "./src/index.ts"
-  ]
+  }
 }

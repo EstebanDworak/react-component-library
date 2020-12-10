@@ -1,97 +1,36 @@
 {
   "name": "create-component-library",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {},
-  "author": {
-    "name": "Esteban Dworak",
-    "email": "esteban.cervantes@resser.com"
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node src/index.ts",
+    "build": "tsc && shx rm -rf dist/templates && shx cp -r src/templates dist"
   },
-  "license": "UNLICENSED",
   "repository": {
     "type": "git",
-    "url": "https://resser.visualstudio.com/ResserOS/_git/react-library-template"
+    "url": "git+https://github.com/EstebanDworak/react-component-library.git"
   },
-  "scripts": {
-    "start:dev": "start-storybook -p 6006",
-    "doc:dev": "start-storybook -p 6006",
-    "doc:build": "build-storybook",
-    "test": "react-scripts test --coverage --watchAll=false --reporters=default --reporters=jest-junit",
-    "test:dev": "react-scripts test --watchAll",
-    "build": "rimraf ./dist && tsc --noEmit false",
-    "lint": "eslint src/**/*.{js,ts,tsx} --quiet --fix",
-    "release": "standard-version",
-    "release:tags": "git push --follow-tags origin HEAD:master",
-    "commit": "git-cz",
-    "prepublishOnly": "npm run lint && npm run build"
+  "keywords": [],
+  "author": "Dworak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EstebanDworak/react-component-library/issues"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint"
-    }
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
+  "homepage": "https://github.com/EstebanDworak/react-component-library#readme",
   "devDependencies": {
-    "@storybook/addon-actions": "^6.1.10",
-    "@storybook/addon-essentials": "^6.1.10",
-    "@storybook/addon-links": "^6.1.10",
-    "@storybook/node-logger": "^6.1.10",
-    "@storybook/preset-create-react-app": "^3.1.5",
-    "@storybook/react": "^6.1.10",
-    "@testing-library/jest-dom": "^5.11.6",
-    "@testing-library/react": "^11.2.2",
-    "@testing-library/user-event": "^12.5.0",
-    "@types/jest": "^26.0.18",
-    "@types/node": "^12.19.8",
-    "@types/react": "^16.14.2",
-    "@types/react-dom": "^16.9.10",
-    "enzyme": "^3.11.0",
-    "eslint": "^7.15.0",
-    "eslint-config-airbnb-typescript-prettier": "^4.1.0",
-    "git-cz": "^4.7.6",
-    "husky": "^4.3.5",
-    "jest-junit": "^12.0.0",
-    "prettier": "^2.2.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-scripts": "4.0.1",
-    "react-test-renderer": "^17.0.1",
-    "rimraf": "^3.0.2",
-    "standard-version": "^9.0.0",
-    "typescript": "^4.1.2",
-    "web-vitals": "^0.2.4"
+    "@types/ejs": "^3.0.5",
+    "@types/inquirer": "^7.3.1",
+    "@types/node": "^14.14.11",
+    "@types/shelljs": "^0.8.8",
+    "nodemon": "^2.0.6",
+    "shx": "^0.3.3",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.2"
   },
-  "jest": {
-    "coverageReporters": [
-      "text",
-      "cobertura",
-      "json",
-      "lcov",
-      "clover"
-    ],
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}",
-      "!src/index.ts",
-      "!src/react-app-env.d.ts",
-      "!src/**/*.stories.{js,jsx,ts,tsx}",
-      "!<rootDir>/node_modules/"
-    ]
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "inquirer": "^7.3.3"
   }
 }
