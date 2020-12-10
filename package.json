@@ -32,5 +32,8 @@
   "dependencies": {
     "ejs": "^3.1.5",
     "inquirer": "^7.3.3"
+  },
+  "bin": {
+    "template-generator": "./dist/index.js"
   }
 }
