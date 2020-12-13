@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm i && npm unlink && npm run build && npm link",
-    "build": "rimraf ./dist && tsc"
+    "start": "node ./dist/index.js",
+    "build": "rimraf ./dist && tsc && shx rm -rf dist/templates && shx cp -r src/templates dist"
   },
   "repository": {
     "type": "git",
@@ -30,9 +30,15 @@
   },
   "dependencies": {
     "azure-devops-node-api": "^10.1.2",
+    "chalk": "^4.1.0",
     "console-clear": "^1.1.1",
     "ejs": "^3.1.5",
-    "inquirer": "^7.3.3"
+    "inquirer": "^7.3.3",
+    "shelljs": "^0.8.4",
+    "shx": "^0.3.3"
+  },
+  "pkg": {
+    "assets": "dist/templates/**/*"
   },
   "bin": {
     "resser-template-generator": "./dist/index.js"
