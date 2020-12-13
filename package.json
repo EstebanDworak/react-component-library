@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node src/index.ts",
-    "build": "tsc && shx rm -rf dist/templates && shx cp -r src/templates dist"
+    "start": "npm i && npm unlink && npm run build && npm link",
+    "build": "rimraf ./dist && tsc"
   },
   "repository": {
     "type": "git",
@@ -25,20 +24,17 @@
     "@types/inquirer": "^7.3.1",
     "@types/node": "^14.14.11",
     "@types/shelljs": "^0.8.8",
-    "nodemon": "^2.0.6",
-    "shx": "^0.3.3",
+    "rimraf": "^3.0.2",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.2"
   },
   "dependencies": {
-    "ascii-art": "^2.5.0",
     "azure-devops-node-api": "^10.1.2",
     "console-clear": "^1.1.1",
     "ejs": "^3.1.5",
     "inquirer": "^7.3.3",
-    "shelljs-plugin-clear": "^0.2.0"
   },
   "bin": {
-    "template-generator": "./dist/index.js"
+    "resser-template-generator": "./dist/index.js"
   }
 }
