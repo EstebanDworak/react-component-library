@@ -15,7 +15,8 @@ import ascii from 'ascii-art'
 import clear from 'console-clear'
 import * as ba from "azure-devops-node-api/BuildApi";
 import * as bi from "azure-devops-node-api/interfaces/BuildInterfaces";
-
+// @ts-ignore
+import logo from 'asciiart-logo'
 export interface CliOptions {
     projectName: string;
     templateName: string;
@@ -23,6 +24,8 @@ export interface CliOptions {
     tartgetPath: string;
     currentDir: string;
 }
+
+
 
 // (async () => {
 //     let orgUrl = "https://dev.azure.com/resser";
@@ -37,26 +40,26 @@ export interface CliOptions {
 //     const gitApiObject: GitApi.IGitApi = await connection.getGitApi();
 //  const repos: GitInterfaces.GitRepository = await gitApiObject.getRepositoryWithParent("pp", true,"resser-web-os");
 //  const repos2: GitInterfaces.GitRepository = await gitApiObject.getRepositoryWithParent("caca", true,"resser-web-os");
- 
- 
+
+
 //  console.log(JSON.stringify(repos));
 //  console.log(JSON.stringify(repos2));
- 
+
 //     // console.log("There are", repos.length, "repositories in this project");
 
 //     // repos.forEach((repo)=>{
 //     //     console.log(repo.name);
-        
+
 //     // })
 //     // console.log(JSON.stringify(repos[5]));
 
 
 
-    
+
 //     //         let vstsBuild: ba.IBuildApi = await connection.getBuildApi();
 
 //     //  let defs: bi.DefinitionReference[] = await vstsBuild.getDefinitions("resser-web-os");
-        
+
 //     //     console.log(`You have ${defs.length} build definition(s)`);
 
 
@@ -74,7 +77,7 @@ export interface CliOptions {
 //     //     }
 //     //     console.log(JSON.stringify(popo[4]));
 //     //     console.log(JSON.stringify(popo[5]));
-        
+
 //     // // let gitApiObject: GitApi.IGitApi = await connection.getGitApi();
 //     // const project = await getProject(connection, "resser-web-os")
 //     // const repo = await getRepo(connection, project, "testing")
@@ -107,6 +110,27 @@ export interface CliOptions {
 (async () => {
     // @ts-ignore
     clear()
+
+    const longText = 'This program allows you to quickly ' +
+        'setup libraries for common use in resser projects.' +
+        'Choose one of different templates and the program will ' +
+        'generate the according template. Including local git setup ' +
+        'a remote repository and a build pipeline can be ' +
+        'generated in Azure Devops using a Personal Acess Token (PAT).';
+
+    console.log(logo({
+        name: 'Resser OS',
+        font: 'Big',
+        lineChars: 20,
+        padding: 2,
+        margin: 0,
+        borderColor: 'grey',
+        logoColor: 'white',
+        textColor: 'grey',
+    }).right('version 3.7.123').emptyLine()
+        .left("Resser OS template generator:")
+        .emptyLine()
+        .left(longText).render());
 
     const CURR_DIR = process.cwd()
     const CHOICES = fs.readdirSync(path.join(__dirname, 'templates'));
@@ -163,7 +187,7 @@ export interface CliOptions {
         shell.cd(options.tartgetPath);
 
         const connection = azureLogin('resser', token)
-        const project = await getProject(connection,PROJECT)
+        const project = await getProject(connection, PROJECT)
         const repo = await createRepo(connection, PROJECT, name)
 
         shell.exec("git init")
@@ -171,7 +195,7 @@ export interface CliOptions {
         shell.exec(`git commit -m "initial-commit"`)
         shell.exec(`git push https://create-component-library:${token}@resser.visualstudio.com/${PROJECT}/_git/${name} HEAD:master`)
 
-        const pipeline = await createPipeline(connection,repo,project);
+        const pipeline = await createPipeline(connection, repo, project);
     } else {
 
         if (!createProject(options)) {
